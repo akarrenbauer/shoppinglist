@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h3>Shopping List</h3>
+
+<p>
+<div th:each="item : ${shoppingList}">
+<span th:text="${item.supply + '/' + item.demand + ' ' + item.name}" />
+</div>
+</p>
+
+<footer>
+<form method="post" th:object="${shoppingListItem}">
+	<input type="text" th:field="*{name}" maxlength="100" pattern="\w+" required>
+	<input type="number" th:field="*{demand}" min="0" required>
+	<input type="submit">
+</form>
+<footer>	
+
+</body>
+</html>
